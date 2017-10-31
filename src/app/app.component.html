@@ -20,30 +20,49 @@
 <body>
 
     <h1>{{ title }}</h1>
-    <div *ngFor="let d of data | async">
-        <table border=1 class="table table-bordered">
+    <div class="container">
+        <table border=1 class="table">
           <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Age</th>
+            <th>Phone</th>
           </tr>
-            <tr>
-                <td>
-                    <h3>{{ d.id }}</h3>
-                </td>
-                <td> 
-                    <h3>{{ d.name }}</h3>
-                </td>
-                <td>
-                    <h3>{{ d.email }}</h3>
-                </td>
-                <td>
-                    <h3>{{ d.age }}</h3>
-                </td>
-                <td>
+            <tr *ngFor="let d of data | async" [attr.id]="d.id"> <!--each row id == id-->
+                <td>{{ d.id }}</td>
+                <td>{{ d.name }}</td>
+                <td>{{ d.email }}</td>
+                <td>{{ d.age }}</td>
+                <td>{{ d.phone }}</td>
+                <button id="edit" onclick="document.getElementById('formDiv').style.display='block'">EDIT</button>
+                <button id="remove">REMOVE</button>
             </tr>
         </table> 
     </div>
+
+    <div id="formDiv" align="center" style="display:none">
+        <form>
+            ID:
+            <input type="text" name="id" id="id">
+
+            <br>name
+            <input type="text" name="name" id="name">
+
+            <br>email
+            <input type="text" name="email" id="email">
+
+            <br>age
+            <input type="text" name="age" id="age">
+
+            <br>phone
+            <input type="text" name="phone" id="phone">
+            
+            <br>
+            <button id="save">SAVE</button>
+            <button id="close" onclick="document.getElementById('formDiv').style.display='none'">CLOSE</button>
+        </form>
+    </div>
+
 </body>
 </html>
