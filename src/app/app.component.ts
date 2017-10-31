@@ -18,8 +18,11 @@ export class AppComponent {
 
   data : Observable<Array<any>>;
 
-  constructor(private service: ReturnsJsonArrayService) {
+  constructor(private service: ReturnsJsonArrayService) 
+  {
     this.data = service.getPeople();
     console.log("AppComponent.data:" + this.data);
   }
+
+  isValid :boolean = false;
 }

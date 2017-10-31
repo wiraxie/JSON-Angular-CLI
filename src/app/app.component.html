@@ -35,13 +35,13 @@
                 <td>{{ d.email }}</td>
                 <td>{{ d.age }}</td>
                 <td>{{ d.phone }}</td>
-                <button id="edit" onclick="document.getElementById('formDiv').style.display='block'">EDIT</button>
+                <button id="edit" (click)="isValid = !isValid">EDIT</button>
                 <button id="remove">REMOVE</button>
             </tr>
         </table> 
     </div>
-
-    <div id="formDiv" align="center" style="display:none">
+ 
+    <div id="formDiv" align="center" *ngIf="isValid"> <!--*ngIf="" selected ID-->
         <form>
             ID:
             <input type="text" name="id" id="id">
@@ -60,7 +60,7 @@
             
             <br>
             <button id="save">SAVE</button>
-            <button id="close" onclick="document.getElementById('formDiv').style.display='none'">CLOSE</button>
+            <button id="close">CLOSE</button>
         </form>
     </div>
 
