@@ -9,7 +9,6 @@ export class ReturnsJsonArrayService
 
   getPeople(): Observable<any> 
   { 
-    /*sini request json*/
     return this.http.request('./assets/data/1.json')
     .map(res => res.json());
   }

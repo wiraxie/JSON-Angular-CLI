@@ -21,7 +21,7 @@
 
     <h1>{{ title }}</h1>
     <div class="container">
-        <table border=1 class="table">
+        <table border=1 class="table table-striped">
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -36,7 +36,7 @@
                 <td>{{ d.age }}</td>
                 <td>{{ d.phone }}</td>
                 <button id="edit" (click)="isValid = !isValid">EDIT</button>
-                <button id="remove">REMOVE</button>
+                <button id="remove">REMOVE Row{{d.id}}</button>
             </tr>
         </table> 
     </div>
@@ -44,23 +44,23 @@
     <div id="formDiv" align="center" *ngIf="isValid"> <!--*ngIf="" selected ID-->
         <form>
             ID:
-            <input type="text" name="id" id="id">
+            <input type="text" name="id" id="id" (ngModel)="id">
 
             <br>name
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" (ngModel)="id">
 
             <br>email
-            <input type="text" name="email" id="email">
+            <input type="text" name="email" id="email" (ngModel)="id">
 
             <br>age
-            <input type="text" name="age" id="age">
+            <input type="text" name="age" id="age"(ngModel)="id">
 
             <br>phone
-            <input type="text" name="phone" id="phone">
+            <input type="text" name="phone" id="phone" (ngModel)="id">
             
             <br>
-            <button id="save">SAVE</button>
-            <button id="close">CLOSE</button>
+            <button id="save" (click)="isValid = !isValid">SAVE</button> <!--changes will be saved-->
+            <button id="close" (click)="isValid = !isValid">CLOSE</button> <!--changes will not be saved-->
         </form>
     </div>
 

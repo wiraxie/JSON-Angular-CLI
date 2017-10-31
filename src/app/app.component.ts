@@ -25,4 +25,15 @@ export class AppComponent {
   }
 
   isValid :boolean = false;
+
+  // deleteRow(id)
+  // {
+  //   for(let i = 0; i < this.data.length; ++i)
+  //   {
+  //       if (this.data[i].id === id)
+  //       {
+  //           this.data.splice(i,1);
+  //       }
+  //   }
+  // }
 }
